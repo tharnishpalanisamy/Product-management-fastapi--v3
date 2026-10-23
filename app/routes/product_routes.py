@@ -63,7 +63,7 @@ async def restock_product(product_id:int , product_data:ProductRestockRequest ,s
     return await product_service.restock_product(product_id , product_data)  
 
 
-@router.post('/{product_id}/summary') 
+@router.get('/{product_id}/summary') 
 async def display_summary(product_id:int,service:ProductService = Depends(get_product_service)) :
     product_service = service   
     result=  await product_service.display_product_summary(product_id=product_id)
