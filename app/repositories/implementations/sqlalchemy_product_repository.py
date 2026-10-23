@@ -46,6 +46,7 @@ class ProductRepository:
                 )
             
             fully_loaded_product = await self.db.scalar(stmt)
+
             return fully_loaded_product
 
         except InvalidCategoryException :
@@ -60,14 +61,69 @@ class ProductRepository:
 
 
     async def get_all(self,filters) -> list[Product] :
-        statement = select(Product).limit(
-            filters['limit']
-            ).offset(
-                filters['offset']
-                ).options(
+        statement = select(Product).options(
             selectinload(Product.category) , 
             selectinload(Product.files)
         )
+
+        #conditions 
+        conditions = [] 
+
+        if filters.get('product_name') is not None :
+            conditions.append(
+                Product.product_name.ilike(f"%{filters['product_name']}%")
+            )
+
+        if filters.get('category_id') is not None : 
+            conditions.append(
+                Product.category_id == filters['category_id']
+            )
+
+        if filters.get('min_quantity') is not None :
+            conditions.append(
+                Product.quantity >= filters['min_quantity']
+            )
+
+        if filters.get('max_quantity') is not None :
+            conditions.append(
+                Product.quantity <= filters['max_quantity']
+            )
+
+        if filters.get('min_cost') is not None :
+            conditions.append(
+                Product.cost_price >= filters['min_cost']
+            )
+
+        if filters.get('max_cost') is not None :
+            conditions.append(
+                Product.cost_price <= filters['max_cost']
+            )
+        
+        if conditions :
+            statement = statement.where(*conditions) 
+
+        sortable_columns = {
+            "id": Product.id,
+            "product_name": Product.product_name,
+            "category_id": Product.category_id,
+            "quantity": Product.quantity,
+            "cost_price": Product.cost_price,
+        } 
+
+        order_column = sortable_columns.get(filters.get('order_by' , 'id') )   
+
+        sort_direction = filters.get("sort_by", "asc")
+
+        if sort_direction == "desc":
+            statement = statement.order_by(order_column.desc()) 
+        else:
+            statement = statement.order_by(order_column.asc())  
+
+        statement = statement.limit(filters['limit']).offset(
+            filters['offset']
+        )
+
+
         products = (await self.db.scalars(statement=statement)).all() 
     
         return products  
@@ -86,7 +142,7 @@ class ProductRepository:
                 'Item not found'
             )
     
-        return product
+        return product   
 
     async def update(self , id , data) : 
         statement = select(Product).where(

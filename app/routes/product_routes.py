@@ -2,7 +2,7 @@ from fastapi import APIRouter , Depends , status , Query
 from schemas.product import (
     ProductResponse , ProductCreate , ProductUpdate , ProductPatch , ProductRestockRequest
 )
-from app.repositories.implementations.sqlalchemy_product_repository import ProductRepository 
+from repositories.implementations.sqlalchemy_product_repository import ProductRepository 
 from services.product_service import ProductService
 from dependencies import get_product_service 
 
@@ -12,15 +12,31 @@ router = APIRouter(prefix='/products' , tags = ['Products'])
 
 @router.get('/' , response_model=list[ProductResponse]) 
 async def get_products( 
+    product_name : str | None = Query(default=None) , 
+    category_id : int | None = Query(default=None),  
+    min_quantity : int | None = Query(default=None , ge=0) ,
+    max_quantity : int | None = Query(default=None , gt=1), 
+    min_cost : float | None = Query(default=None , gt=0 ), 
+    max_cost : float | None= Query(default=None , gt=1) ,
     limit:int | None =Query(default=10 , ge=1) ,
-    offset:int | None = Query(default=0 , ge=0) ,
+    offset:int | None = Query(default=0 , ge=0) , 
+    order_by : str = Query(default='id') ,
+    sort_by : str = Query(default='asc') ,
     service: ProductService = Depends(get_product_service) 
     ) :  
 
     product_service = service
     filters = {
+        'product_name' : product_name , 
+        'category_id' : category_id ,
+        'min_quantity' : min_quantity ,
+        'max_quantity' : max_quantity ,
+        'min_cost' : min_cost ,
+        'max_cost' : max_cost ,
         'limit' : limit , 
-        'offset' : offset
+        'offset' : offset , 
+        'order_by' : order_by , 
+        'sort_by' : sort_by
     }
     return await product_service.get_all_products(filters) 
 

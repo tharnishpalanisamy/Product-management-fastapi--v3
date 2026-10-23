@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.repositories.interfaces.product_repository import ProductRepositoryInterface 
+from repositories.interfaces.product_repository import ProductRepositoryInterface 
 
 
 class ProductService:   
@@ -11,7 +11,12 @@ class ProductService:
         return await self.product_repository.create(product_data)
 
     async def get_all_products(self , filters):
-        return await self.product_repository.get_all(filters)  
+        new_filters = {} 
+        for filter in filters :
+            if filters[filter] is None :
+                continue 
+            new_filters[filter] = filters[filter]
+        return await self.product_repository.get_all(new_filters)  
 
     async def get_product_by_id(self , product_id : int) :
         return await self.product_repository.get_by_id(product_id)  

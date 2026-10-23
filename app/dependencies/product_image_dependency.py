@@ -3,7 +3,7 @@ from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from database.connection import get_db
-from app.repositories.implementations.sqlalchemy_product_image_repository import ProductImageRepository
+from repositories.implementations.sqlalchemy_product_image_repository import ProductImageRepository
 from services.product_image_service import ProductImageService
 
 
