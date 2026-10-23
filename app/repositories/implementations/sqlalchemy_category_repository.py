@@ -42,9 +42,14 @@ class CategoryRepository:
 
     async def get_all_products(self , id) :
         try :
-            statement = select(Product).where(Product.category_id == id ) 
-            result = await self.db.scalars(statement) 
+            statement = select(
+                Product.id , Product.product_name , Product.quantity , 
+                Product.cost_price , Category.name
+                ).join(Category, Product.category_id == Category.id).where(
+                    Product.category_id == id 
+                )
+            result = await self.db.execute(statement) 
 
-            return result.all() 
+            return result.mappings().all()  
         except Exception :
             raise 

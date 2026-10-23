@@ -41,6 +41,8 @@ class ProductRepository:
                 selectinload(Product.files)
             ).where(
                 Product.id == product.id
+                ).order_by(
+                    Product.id
                 )
             
             fully_loaded_product = await self.db.scalar(stmt)

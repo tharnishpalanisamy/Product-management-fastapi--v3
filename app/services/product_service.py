@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from repositories.product_repository import ProductRepositoryInterface 
+from app.repositories.interfaces.product_repository import ProductRepositoryInterface 
 
 
 class ProductService:   

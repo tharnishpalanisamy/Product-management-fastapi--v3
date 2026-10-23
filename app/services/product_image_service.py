@@ -2,8 +2,8 @@ from pathlib import Path
 from sqlalchemy.ext.asyncio import AsyncSession
 from exceptions import InvalidFileType , MaximumSizeExceeded , EmptyFileException , ProductNotFoundException
 from uuid import uuid4 
-from repositories.sqlalchemy_product_image_repository import ProductImageRepository
-from repositories.product_image_repository import ProductImageRepositoryInterface
+from app.repositories.implementations.sqlalchemy_product_image_repository import ProductImageRepository
+from app.repositories.interfaces.product_image_repository import ProductImageRepositoryInterface
 
 UPLOAD_DIR = Path('upload/product') 
 

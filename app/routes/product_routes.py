@@ -2,7 +2,7 @@ from fastapi import APIRouter , Depends , status , Query
 from schemas.product import (
     ProductResponse , ProductCreate , ProductUpdate , ProductPatch , ProductRestockRequest
 )
-from repositories.sqlalchemy_product_repository import ProductRepository 
+from app.repositories.implementations.sqlalchemy_product_repository import ProductRepository 
 from services.product_service import ProductService
 from dependencies import get_product_service 
 
