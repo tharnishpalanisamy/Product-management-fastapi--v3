@@ -1,7 +1,7 @@
 from schemas.product import CategoryResponse 
 from models.category import Category 
 from models.product import Product
-from sqlalchemy import select
+from sqlalchemy import select , func , join
 
 class CategoryRepository:
     def __init__(self , db):
@@ -17,3 +17,34 @@ class CategoryRepository:
         except : 
             raise 
 
+    async def get_total_sale(self , id ) :
+        try :
+            statement = select(
+                Category.id ,
+                Category.name , 
+                func.sum(
+                    (Product.cost_price * Category.margin ) * Product.quantity 
+                ).label('Total sale')).join(
+                    Product , Product.category_id == Category.id
+                ).where(
+                    Category.id == id 
+                ).group_by(
+                    Category.id ,
+                    Category.name
+                )
+            
+
+            result = (await self.db.execute(statement))
+
+            return result.mappings().one_or_none()
+        except Exception :
+            raise 
+
+    async def get_all_products(self , id) :
+        try :
+            statement = select(Product).where(Product.category_id == id ) 
+            result = await self.db.scalars(statement) 
+
+            return result.all() 
+        except Exception :
+            raise 
