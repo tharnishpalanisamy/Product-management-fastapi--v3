@@ -1,7 +1,7 @@
 from sqlalchemy import String , Integer , Numeric 
 from decimal import Decimal 
 from sqlalchemy.orm import Mapped , mapped_column , relationship
-from database.base import Base 
+from app.database.base import Base 
 # from models.product import Product
 
 class Category(Base) :

@@ -6,11 +6,11 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context 
-from database.base import Base 
-from models.category import Category 
-from models.product import Product
-from models.product_image import ProductImage  
-from config import setting 
+from app.database.base import Base 
+from app.models import Category 
+from app.models import Product
+from app.models import ProductImage  
+from app.config import setting 
 
 
 

@@ -7,3 +7,5 @@ pydantic_settings
 asyncpg 
 sqlalchemy[asyncio]
 alembic
+PyJWT[crypto]
+pwdlib[argon2] 

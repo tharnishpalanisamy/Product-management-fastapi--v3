@@ -2,7 +2,7 @@ from sqlalchemy import Integer , String , Numeric , ForeignKey
 from sqlalchemy.orm import  Mapped , mapped_column , relationship 
 # from models.category import Category 
 # from models.product_image import ProductImage
-from database.base import Base
+from app.database.base import Base
 
 class Product(Base) : 
     __tablename__ = 'products' 

@@ -5,5 +5,5 @@ class AuthRepository :
     def create_user(data) : 
         pass 
 
-    def login(data) :
+    def get(data) :
         pass 
