@@ -1,3 +1,4 @@
 from .product_dependency import get_product_service 
 from .product_image_dependency import get_product_image_service
 from .category_dependency import get_category_service
+from .auth_dependency import get_auth_service 

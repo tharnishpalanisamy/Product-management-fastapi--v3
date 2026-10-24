@@ -19,7 +19,6 @@ class ProductRepository:
             statement = select(Category).where(
                     Category.id == data.category_id
                 )
-            
             category = await self.db.scalar(statement)
         
             if category is None :
@@ -180,7 +179,7 @@ class ProductRepository:
             raise ProductNotFoundException(
                 'Item not found'
             ) 
-    
+
         try :
             if data.product_name is not None  :
                 product.product_name = data.product_name  
@@ -192,7 +191,6 @@ class ProductRepository:
                 product.category_id = data.category_id 
     
             await self.db.commit() 
-    
             return {
                 'message' : 'product updated successfully' , 
                 'id' : id
@@ -258,4 +256,4 @@ class ProductRepository:
             {"id": id}
         )
 
-        return result.mappings().one_or_none()
+        return result.mappings().one_or_none()                                                                                                                                                                     
