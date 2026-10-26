@@ -1,9 +1,9 @@
 
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
-from database.connection import get_db
-from repositories.implementations.sqlalchemy_category_repository import CategoryRepository
-from services.category_service import CategoryService
+from app.database.connection import get_db
+from app.repositories.implementations.sqlalchemy_category_repository import CategoryRepository
+from app.services.category_service import CategoryService
 
 def get_product_repository(db: AsyncSession = Depends(get_db)) : 
     return CategoryRepository(db)

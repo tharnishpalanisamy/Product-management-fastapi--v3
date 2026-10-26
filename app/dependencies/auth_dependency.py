@@ -1,15 +1,19 @@
-from database.connection import get_db 
+from app.database.connection import get_db 
 from fastapi import Depends 
-from repositories.implementations.sqlalchemy_auth_repository import AuthRepository 
-from services.auth_service import AuthService 
+from app.repositories.implementations.sqlalchemy_user_repository import UserRepository 
+from app.services.auth_service import AuthService 
 from sqlalchemy.ext.asyncio import AsyncSession
-from repositories.interfaces.auth_repository import AuthRepositoryInterface
+from app.repositories.interfaces.user_repository import UserRepositoryInterface
 
 def get_auth_repository(db:AsyncSession = Depends(get_db))  : 
-    return AuthRepository(db) 
+    return UserRepository(db) 
 
 def get_auth_service(
     db:AsyncSession = Depends(get_db) , 
-    repository:AuthRepositoryInterface = Depends(get_auth_repository)
+    repository:UserRepositoryInterface = Depends(get_auth_repository)
     ):
     return AuthService(db , repository)
+
+
+def current_user() : 
+    pass    

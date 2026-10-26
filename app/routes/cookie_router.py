@@ -1,5 +1,5 @@
 from fastapi import APIRouter , Request , Response 
-from schemas.product import ThemeRequest
+from app.schemas.product import ThemeRequest
 router = APIRouter(
     prefix='/cookie' , tags=['Cookie']
 )

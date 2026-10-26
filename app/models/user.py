@@ -8,7 +8,7 @@ class User(Base) :
     id : Mapped[int] = mapped_column(
         Integer , primary_key= True , index=True 
     )
-    user_name : Mapped[str] = mapped_column(
+    username : Mapped[str] = mapped_column(
         String , nullable=False 
     )
     email : Mapped[str] = mapped_column(
@@ -21,7 +21,7 @@ class User(Base) :
         String(255) , nullable=False 
     )
     created_at:Mapped[datetime] = mapped_column(
-        DateTime , nullable=False , default=func.now() 
+        DateTime , nullable=False , default = datetime.now() ,server_default=func.now() 
     )
     active : Mapped[bool] = mapped_column(
         Boolean , nullable=False

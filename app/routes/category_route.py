@@ -1,5 +1,5 @@
 from fastapi import APIRouter , Depends
-from dependencies import get_category_service
+from app.dependencies import get_category_service
 
 router = APIRouter(
     prefix='/category' , tags=['category']

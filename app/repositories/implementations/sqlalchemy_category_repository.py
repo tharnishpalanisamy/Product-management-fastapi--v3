@@ -1,6 +1,6 @@
-from schemas.product import CategoryResponse 
-from models.category import Category 
-from models.product import Product
+from app.schemas.product import CategoryResponse 
+from app.models.category import Category 
+from app.models.product import Product
 from sqlalchemy import select , func , join
 
 class CategoryRepository:

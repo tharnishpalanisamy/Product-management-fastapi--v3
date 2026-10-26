@@ -1,5 +1,5 @@
 from typing import Protocol 
-from models.product_image import ProductImage
+from app.models.product_image import ProductImage
 
 class ProductImageRepositoryInterface(Protocol) :
 

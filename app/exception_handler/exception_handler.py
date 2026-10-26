@@ -1,6 +1,6 @@
 from fastapi import Request 
 from fastapi.responses import JSONResponse 
-from exceptions import (
+from app.exceptions import (
     InvalidCategoryException , 
     DataBaseException , 
     ProductNotFoundException ,

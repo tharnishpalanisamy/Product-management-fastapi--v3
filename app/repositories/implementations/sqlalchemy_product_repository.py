@@ -1,12 +1,12 @@
-from models import Category 
+from app.models import Category 
 from sqlalchemy.orm import selectinload 
 from sqlalchemy import select, text 
 from sqlalchemy.ext.asyncio import AsyncSession 
-from exceptions import (
+from app.exceptions import (
     InvalidCategoryException , DataBaseException , ProductNotFoundException
     )
 
-from models.product import Product
+from app.models.product import Product
 
 class ProductRepository:
     def __init__(self , db:AsyncSession) :

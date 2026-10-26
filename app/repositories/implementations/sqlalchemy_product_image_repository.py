@@ -1,9 +1,9 @@
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from models.product import Product
-from models.product_image import ProductImage 
-from exceptions import DataBaseException , ProductNotFoundException
+from app.models.product import Product
+from app.models.product_image import ProductImage 
+from app.exceptions import DataBaseException , ProductNotFoundException
 
 
 class ProductImageRepository:

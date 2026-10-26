@@ -9,3 +9,4 @@ sqlalchemy[asyncio]
 alembic
 PyJWT[crypto]
 pwdlib[argon2] 
+pydantic[email]
