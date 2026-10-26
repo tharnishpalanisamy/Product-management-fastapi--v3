@@ -1,7 +1,11 @@
+from typing import TYPE_CHECKING
 from app.database.base import Base 
-from sqlalchemy import Integer , String , ForeignKey 
-from sqlalchemy.orm import Mapped , mapped_column , relationship 
-# from models import Product
+from sqlalchemy import Integer, String, ForeignKey 
+from sqlalchemy.orm import Mapped, mapped_column, relationship 
+
+# This block tells Pylance/Pyright what 'Product' is without importing it at runtime
+if TYPE_CHECKING:
+    from models.product import Product
 
 class ProductImage(Base) : 
     __tablename__ = 'product_images' 

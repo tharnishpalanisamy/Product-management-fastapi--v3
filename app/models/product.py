@@ -1,8 +1,13 @@
-from sqlalchemy import Integer , String , Numeric , ForeignKey
-from sqlalchemy.orm import  Mapped , mapped_column , relationship 
-# from models.category import Category 
-# from models.product_image import ProductImage
+from typing import TYPE_CHECKING
+from sqlalchemy import Integer, String, Numeric, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database.base import Base
+
+# This block is only read by your code editor/type checker, ignoring runtime
+if TYPE_CHECKING:
+    from models.category import Category
+    from models.product_image import ProductImage
+
 
 class Product(Base) : 
     __tablename__ = 'products' 

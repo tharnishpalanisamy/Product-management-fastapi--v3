@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI , Request
 from app.routes.product_routes import router as product_router  
 from app.routes.product_image_router import router as product_image_router 
 from app.routes.cookie_router import router as cookie_router  
@@ -6,9 +6,23 @@ from app.routes.category_route import router as category_router
 from app.routes.auth_router import router as auth_router
 from app.exceptions import ProductNotFoundException , InvalidCategoryException , DataBaseException 
 from app.exception_handler.exception_handler import product_not_found_handler, invalid_category_handler , database_handler
+import time 
 
 app = FastAPI() 
 
+@app.middleware('http') 
+async def return_timing(request:Request , call_next) :
+    start = time.perf_counter() 
+
+    print(f'Incomonig request {request.method} {request.url.path} ') 
+    response = await call_next(request) 
+    process_time = time.perf_counter()  - start 
+    print(f'Process timing {process_time}') 
+    print(f"Status code: {response.status_code}")
+    print(f"Processing time: {process_time:.4f} seconds")
+    response.headers['time'] = str(process_time) 
+    return response
+    
 
 app.include_router(product_router) 
 # app.include_router(product_image_router) 

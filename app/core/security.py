@@ -11,15 +11,16 @@ def hash_password(password:str) ->str :
 def verify_password(password:str , hashed_password : str ) -> bool :
     return password_hash.verify(password , hashed_password) 
 
-def create_access_token(user_id : int ) -> str :
+def create_access_token(user_id : int , role:str ) -> str :
     now = datetime.now(timezone.utc) 
 
     payload = {
         'sub' : str(user_id) , 
+        'role' : role ,
         'iat' : now , 
         'exp' : now + timedelta(
             minutes=setting.ACCESS_TOKEN_EXPIRE_MINUTES
-        )
+        ) 
     }
 
     return jwt.encode(
