@@ -25,3 +25,12 @@ class UserRepository :
         query = select(User).where(User.email == email) 
         result = await self.db.scalar(query) 
         return result
+
+    async def get_all(self) :
+        query = select(User) 
+        result = await self.db.scalars(query) 
+        return result.all()  
+
+    async def delete(self , id ) :
+        pass 
+    
