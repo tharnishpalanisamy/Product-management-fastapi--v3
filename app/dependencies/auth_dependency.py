@@ -21,12 +21,13 @@ def get_auth_service(
     ):
     return AuthService(db , repository)
 
-bearer_scheme = HTTPBearer()    
+bearer_scheme = HTTPBearer(auto_error=False)    
 
 async def get_current_user(
     credentials:HTTPAuthorizationCredentials = Depends(bearer_scheme), 
     db:AsyncSession = Depends(get_db)
 ) : 
+
     token = credentials.credentials 
 
     try :
@@ -64,6 +65,7 @@ async def get_current_user(
         )
 
     return user
+
 
 
 def admin_required( current_user:User = Depends(get_current_user) ) -> User :

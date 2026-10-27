@@ -32,5 +32,21 @@ class UserRepository :
         return result.all()  
 
     async def delete(self , id ) :
-        pass 
-    
+        try :
+            query = select(User).where(
+                User.id == id 
+            ) 
+
+            user = await self.db.scalar(query) 
+
+            if user : 
+                await self.db.delete(user)
+                # await self.db.flush() 
+                await self.db.commit() 
+                return True 
+            return False
+
+
+        except Exception :
+            await self.db.rollback() 
+            raise 

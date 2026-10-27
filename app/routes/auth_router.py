@@ -9,13 +9,13 @@ router = APIRouter(
 
 
 
-@router.get('/me' ) 
-def get_me(current_user : User  = Depends(get_current_user)) :
-    return {
-        'id' : current_user.id , 
-        'username' : current_user.username , 
-        'email' : current_user.email 
-    }
+# @router.get('/me' ) 
+# def get_me(current_user : User  = Depends(get_current_user)) :
+#     return {
+#         'id' : current_user.id , 
+#         'username' : current_user.username , 
+#         'email' : current_user.email 
+#     }
 
 @router.post('/login' , status_code=status.HTTP_201_CREATED) 
 async def login(login_data : UserLogin , service = Depends(get_auth_service)) : 
