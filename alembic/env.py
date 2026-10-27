@@ -10,6 +10,7 @@ from app.database.base import Base
 from app.models import Category 
 from app.models import Product
 from app.models import ProductImage  
+from app.models import RefreshToken
 from app.config import setting 
 
 

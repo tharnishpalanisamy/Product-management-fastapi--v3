@@ -1,0 +1,2 @@
+class RefreshTokenRepository :
+    pass 
