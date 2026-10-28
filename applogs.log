@@ -1,15 +1,45 @@
-2026-10-28 15:55:11 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
-2026-10-28 15:55:11 - INFO - uvicorn.error - Started server process [18528]
-2026-10-28 15:55:11 - INFO - uvicorn.error - Started server process [18528]
-2026-10-28 15:55:11 - INFO - uvicorn.error - Waiting for application startup.
-2026-10-28 15:55:11 - INFO - uvicorn.error - Waiting for application startup.
-2026-10-28 15:55:11 - INFO - uvicorn.error - Application startup complete.
-2026-10-28 15:55:11 - INFO - uvicorn.error - Application startup complete.
-2026-10-28 15:55:40 - INFO - uvicorn.error - Shutting down
-2026-10-28 15:55:40 - INFO - uvicorn.error - Shutting down
-2026-10-28 15:55:40 - INFO - uvicorn.error - Waiting for application shutdown.
-2026-10-28 15:55:40 - INFO - uvicorn.error - Waiting for application shutdown.
-2026-10-28 15:55:40 - INFO - uvicorn.error - Application shutdown complete.
-2026-10-28 15:55:40 - INFO - uvicorn.error - Application shutdown complete.
-2026-10-28 15:55:40 - INFO - uvicorn.error - Finished server process [18528]
-2026-10-28 15:55:40 - INFO - uvicorn.error - Finished server process [18528]
+2026-10-28 15:59:24 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 15:59:24 - INFO - app - Test log entry written to applogs
+2026-10-28 16:02:58 - INFO - uvicorn.error - Shutting down
+2026-10-28 16:02:58 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-28 16:02:58 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-28 16:02:58 - INFO - uvicorn.error - Finished server process [32492]
+2026-10-28 16:03:03 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 16:03:03 - INFO - uvicorn.error - Started server process [2428]
+2026-10-28 16:03:03 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-28 16:03:03 - INFO - uvicorn.error - Application startup complete.
+2026-10-28 16:04:37 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 16:04:37 - INFO - uvicorn.error - Started server process [24048]
+2026-10-28 16:04:37 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-28 16:04:37 - INFO - uvicorn.error - Application startup complete.
+2026-10-28 16:04:50 - INFO - app - Incoming request GET /api/external/posts/4
+2026-10-28 16:05:01 - INFO - app - Process timing 10.9614 seconds | Status code: 504
+2026-10-28 16:05:01 - INFO - uvicorn.access - 127.0.0.1:65066 - "GET /api/external/posts/4 HTTP/1.1" 504
+2026-10-28 16:05:15 - INFO - app - Incoming request GET /api/external/posts/5
+2026-10-28 16:05:16 - INFO - httpx - HTTP Request: GET https://jsonplaceholder.typicode.com/posts/5 "HTTP/1.1 200 OK"
+2026-10-28 16:05:16 - INFO - app - Process timing 0.7278 seconds | Status code: 200
+2026-10-28 16:05:16 - INFO - uvicorn.access - 127.0.0.1:50149 - "GET /api/external/posts/5 HTTP/1.1" 200
+2026-10-28 16:07:43 - INFO - uvicorn.error - Shutting down
+2026-10-28 16:07:43 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-28 16:07:43 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-28 16:07:43 - INFO - uvicorn.error - Finished server process [24048]
+2026-10-28 16:07:47 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 16:07:47 - INFO - uvicorn.error - Started server process [21036]
+2026-10-28 16:07:47 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-28 16:07:47 - INFO - uvicorn.error - Application startup complete.
+2026-10-28 16:08:04 - INFO - uvicorn.error - Shutting down
+2026-10-28 16:08:04 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-28 16:08:04 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-28 16:08:04 - INFO - uvicorn.error - Finished server process [21036]
+2026-10-28 16:08:08 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 16:08:08 - INFO - uvicorn.error - Started server process [18264]
+2026-10-28 16:08:08 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-28 16:08:08 - INFO - uvicorn.error - Application startup complete.
+2026-10-28 16:08:08 - INFO - uvicorn.error - Shutting down
+2026-10-28 16:08:08 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-28 16:08:08 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-28 16:08:08 - INFO - uvicorn.error - Finished server process [18264]
+2026-10-28 16:08:11 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-28 16:08:11 - INFO - uvicorn.error - Started server process [33604]
+2026-10-28 16:08:11 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-28 16:08:11 - INFO - uvicorn.error - Application startup complete.
