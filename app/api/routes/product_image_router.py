@@ -3,7 +3,7 @@ from app.services.product_image_service import ProductImageService
 from app.dependencies import get_product_image_service
 
 router = APIRouter(
-    prefix='/productImages',
+    prefix='/api/productImages',
     tags = ['Product Documents']
 )
 

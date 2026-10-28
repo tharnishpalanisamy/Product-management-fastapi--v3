@@ -18,8 +18,10 @@ class UserRepository :
         except Exception as error :
             raise 
 
-    def get_by_id(self , id ) :
-        pass 
+    async def get_by_id(self , id ) :
+        query = select(User).where(User.id == id) 
+        result = await self.db.scalar(query) 
+        return result
 
     async def get_by_email(self , email ) :
         query = select(User).where(User.email == email) 

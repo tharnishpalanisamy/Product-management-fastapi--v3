@@ -3,23 +3,37 @@ from fastapi import Depends , HTTPException , status
 from app.repositories.implementations.sqlalchemy_user_repository import UserRepository 
 from app.services.auth_service import AuthService 
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.repositories.interfaces.user_repository import UserRepositoryInterface
+from app.repositories.interfaces.user_repository import UserRepositoryInterface 
+from app.repositories.interfaces.refresh_token_repository import RefreshTokenRepositoryInterface
+from app.repositories.implementations.sqlalchemy_refresh_token_repository import RefreshTokenRepository
 from fastapi.security import HTTPBearer , HTTPAuthorizationCredentials
 from jwt.exceptions import InvalidTokenError  
 from app.config import setting
 import jwt 
 from sqlalchemy import select 
 from app.models import User
+from app.services.refresh_token_service import RefreshTokenService
 
 
 def get_auth_repository(db:AsyncSession = Depends(get_db))  : 
     return UserRepository(db) 
 
+def get_refresh_token_repository(db:AsyncSession = Depends(get_db)) : 
+    return RefreshTokenRepository(db) 
+
+def get_refresh_token_service(
+        db:AsyncSession = Depends(get_db) , 
+        repository : RefreshTokenRepositoryInterface = Depends(get_refresh_token_repository)
+    ):
+
+    return RefreshTokenService(db , repository) 
+
 def get_auth_service(
     db:AsyncSession = Depends(get_db) , 
-    repository:UserRepositoryInterface = Depends(get_auth_repository)
+    repository:UserRepositoryInterface = Depends(get_auth_repository) , 
+    refresh_token_service : RefreshTokenService = Depends(get_refresh_token_service)
     ):
-    return AuthService(db , repository)
+    return AuthService(db , repository , refresh_token_service)
 
 bearer_scheme = HTTPBearer(auto_error=False)    
 

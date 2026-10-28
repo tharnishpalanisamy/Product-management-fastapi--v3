@@ -2,9 +2,10 @@ from fastapi import APIRouter , Depends , status
 from app.schemas.auth_schema import UserLogin , UserCreate
 from app.dependencies.auth_dependency import get_auth_service , get_current_user
 from app.models import User
+from app.schemas.auth_schema import RefreshTokenRequest 
 
 router = APIRouter(
-    prefix='/Auth' , tags=['Authentication']
+    prefix='/api/Auth' , tags=['Authentication']
 )
 
 
@@ -24,3 +25,12 @@ async def login(login_data : UserLogin , service = Depends(get_auth_service)) :
 @router.post('/signup' , status_code=status.HTTP_201_CREATED)
 async def signup(user_data:UserCreate , service = Depends(get_auth_service) ) :  
     return await service.create_user(user_data)
+
+
+@router.post('/refresh')
+
+async def refresh_token(
+    payload : RefreshTokenRequest , 
+    service = Depends(get_auth_service) 
+):
+    return await service.refresh_tokens(payload.refresh_token)

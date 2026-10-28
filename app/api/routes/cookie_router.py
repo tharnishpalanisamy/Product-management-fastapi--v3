@@ -1,7 +1,7 @@
 from fastapi import APIRouter , Request , Response 
 from app.schemas.product import ThemeRequest
 router = APIRouter(
-    prefix='/cookie' , tags=['Cookie']
+    prefix='/api/cookie' , tags=['Cookie']
 )
 
 @router.post('/set') 

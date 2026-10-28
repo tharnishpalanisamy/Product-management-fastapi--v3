@@ -20,6 +20,7 @@ class UserCreate(BaseModel) :
         min_length=8 , max_length=50
     )
 
+
     @field_validator('password')
     @classmethod
 
@@ -42,3 +43,7 @@ class UserCreate(BaseModel) :
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
+
+
+class RefreshTokenRequest(BaseModel):
+    refresh_token: str = Field(min_length=1)

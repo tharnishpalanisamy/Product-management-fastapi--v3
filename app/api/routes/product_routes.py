@@ -9,7 +9,7 @@ from app.models import User
 from app.dependencies import get_current_user , admin_required
 
 
-router = APIRouter(prefix='/products' , tags = ['Products']) 
+router = APIRouter(prefix='/api/products' , tags = ['Products']) 
 
 
 @router.get('/' , response_model=list[ProductResponse]) 

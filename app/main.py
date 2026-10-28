@@ -11,6 +11,9 @@ from app.exception_handler.exception_handler import (
     product_not_found_handler, invalid_category_handler , database_handler
 )
 import time 
+from app.core.logging_config import setup_logging, logger
+
+setup_logging()
 
 app = FastAPI() 
 
@@ -18,22 +21,20 @@ app = FastAPI()
 async def return_timing(request:Request , call_next) :
     start = time.perf_counter() 
 
-    print(f'Incomonig request {request.method} {request.url.path} ') 
+    logger.info(f"Incoming request {request.method} {request.url.path}") 
     response = await call_next(request) 
     process_time = time.perf_counter()  - start 
-    print(f'Process timing {process_time}') 
-    print(f"Status code: {response.status_code}")
-    print(f"Processing time: {process_time:.4f} seconds")
+    logger.info(f"Process timing {process_time:.4f} seconds | Status code: {response.status_code}") 
     response.headers['time'] = str(process_time) 
     return response
-    
 
+    
+app.include_router(auth_router) 
+app.include_router(user_router) 
 app.include_router(product_router) 
 # app.include_router(product_image_router) 
 # app.include_router(cookie_router) 
 # app.include_router(category_router) 
-app.include_router(auth_router) 
-app.include_router(user_router) 
 app.include_router(external_api_router) 
 
 
