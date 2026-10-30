@@ -1,0 +1,2 @@
+class RazorPayIntegrationException(Exception) :
+    pass 

@@ -28,8 +28,8 @@ class Settings(BaseSettings):
 
     #razor pay
 
-    TEST_API_KEY :str 
-    TEST_SECRET_KEY :str 
+    RAZORPAY_KEY_ID: str 
+    RAZORPAY_KEY_SECRET: str 
 
 
 

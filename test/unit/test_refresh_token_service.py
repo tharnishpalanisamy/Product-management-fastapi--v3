@@ -1,9 +1,8 @@
-
-from datetime import datetime, timedelta, timezone
-from types import SimpleNamespace
+from datetime import UTC, datetime, timedelta
 from unittest.mock import AsyncMock, MagicMock
+
 import pytest
-from app.exceptions import InvalidRefreshTokenException
+
 from app.models import RefreshToken
 from app.services.refresh_token_service import RefreshTokenService
 
@@ -14,7 +13,7 @@ def db():
     session.commit = AsyncMock()
     session.rollback = AsyncMock()
     session.flush = AsyncMock()
-    return session
+    return session 
 
 
 @pytest.fixture
@@ -53,9 +52,7 @@ def test_hash_token_is_deterministic_and_not_raw_token():
 
 
 def test_build_refresh_token_record(service):
-    raw_token, record = service._build_refresh_token_record(
-        user_id=123
-    )
+    raw_token, record = service._build_refresh_token_record(user_id=123)
 
     assert isinstance(record, RefreshToken)
     assert record.user_id == 123
@@ -63,10 +60,8 @@ def test_build_refresh_token_record(service):
     assert record.token_hash != raw_token
     assert record.expires_at.tzinfo is not None
 
-    expected_expiry = (
-        datetime.now(timezone.utc)
-        + timedelta(days=service.REFRESH_TOKEN_EXPIRE_DAYS)
+    expected_expiry = datetime.now(UTC) + timedelta(
+        days=service.REFRESH_TOKEN_EXPIRE_DAYS
     )
 
     assert abs((record.expires_at - expected_expiry).total_seconds()) < 2
-

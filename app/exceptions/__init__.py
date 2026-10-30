@@ -7,4 +7,5 @@ from .user import (
     InvalidCredentialsException 
 )
 
+from .razorpay import RazorPayIntegrationException
 from .refresh_token import InvalidRefreshTokenException 
