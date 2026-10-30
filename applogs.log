@@ -51,3 +51,336 @@
 2026-10-28 16:30:57 - INFO - uvicorn.error - Started server process [27064]
 2026-10-28 16:30:57 - INFO - uvicorn.error - Waiting for application startup.
 2026-10-28 16:30:57 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:52:11 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:52:11 - INFO - uvicorn.error - Started server process [27188]
+2026-10-30 14:52:11 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:52:11 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:52:22 - INFO - app - Incoming request GET /docs
+2026-10-30 14:52:22 - INFO - app - Process timing 0.0011 seconds | Status code: 200
+2026-10-30 14:52:22 - INFO - uvicorn.access - 127.0.0.1:63216 - "GET /docs HTTP/1.1" 200
+2026-10-30 14:52:23 - INFO - app - Incoming request GET /openapi.json
+2026-10-30 14:52:23 - INFO - app - Process timing 0.1030 seconds | Status code: 200
+2026-10-30 14:52:23 - INFO - uvicorn.access - 127.0.0.1:63216 - "GET /openapi.json HTTP/1.1" 200
+2026-10-30 14:52:32 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:52:32 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:52:32 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:52:32 - INFO - uvicorn.error - Finished server process [27188]
+2026-10-30 14:52:39 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:52:39 - INFO - uvicorn.error - Started server process [9220]
+2026-10-30 14:52:39 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:52:39 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:53:03 - INFO - app - Incoming request POST /api/Auth/signup
+2026-10-30 14:53:03 - INFO - uvicorn.access - 127.0.0.1:56067 - "POST /api/Auth/signup HTTP/1.1" 500
+2026-10-30 14:53:03 - ERROR - uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 203, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\app\main.py", line 25, in return_timing
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 179, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\routing.py", line 678, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1865, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1328, in handle
+    await effective_context.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 511, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\dependencies\utils.py", line 733, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\app\dependencies\auth_dependency.py", line 59, in get_auth_service
+    return AuthService(db, repository, refresh_token_service)
+TypeError: AuthService.__init__() missing 1 required positional argument: 'email_service'
+2026-10-30 14:53:15 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:53:15 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:53:15 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:53:15 - INFO - uvicorn.error - Finished server process [9220]
+2026-10-30 14:53:19 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:53:19 - INFO - uvicorn.error - Started server process [19964]
+2026-10-30 14:53:19 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:53:19 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:53:19 - INFO - app - Incoming request POST /api/Auth/signup
+2026-10-30 14:53:19 - INFO - uvicorn.access - 127.0.0.1:65314 - "POST /api/Auth/signup HTTP/1.1" 500
+2026-10-30 14:53:19 - ERROR - uvicorn.error - Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 203, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\app\main.py", line 25, in return_timing
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 179, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\routing.py", line 678, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1839, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 2894, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1865, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 1328, in handle
+    await effective_context.app(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\routing.py", line 511, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\fastapi\dependencies\utils.py", line 733, in solve_dependencies
+    solved = await run_in_threadpool(call, **solved_result.values)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\starlette\concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\app\dependencies\auth_dependency.py", line 59, in get_auth_service
+    return AuthService(db, repository, refresh_token_service , email_service)
+                                                               ^^^^^
+NameError: name 'email' is not defined. Did you mean: 'eval'? Or did you forget to import 'email'?
+2026-10-30 14:53:20 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:53:20 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:53:20 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:53:20 - INFO - uvicorn.error - Finished server process [19964]
+2026-10-30 14:53:23 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:53:23 - INFO - uvicorn.error - Started server process [33520]
+2026-10-30 14:53:23 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:53:23 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:53:26 - INFO - app - Incoming request POST /api/Auth/signup
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - select pg_catalog.version()
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - select current_schema()
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - show standard_conforming_strings
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - INSERT INTO users (username, email, role, hashed_password, created_at, active) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::TIMESTAMP WITHOUT TIME ZONE, $6::BOOLEAN) RETURNING users.id
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - [generated in 0.00064s] ('Tharnish', 'tharnishpalanisamy3@gmail.com', 'user', '$argon2id$v=19$m=65536,t=3,p=4$EQtRzBBAzLCe9YakvYedEg$FFlPxkpggkvzc4+u68hg/J1oidb1562hRGbRDOfklCU', datetime.datetime(2026, 10, 30, 14, 53, 22, 383766), True)
+2026-10-30 14:53:26 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-10-30 14:53:26 - INFO - app - Process timing 0.4894 seconds | Status code: 201
+2026-10-30 14:53:26 - INFO - uvicorn.access - 127.0.0.1:55557 - "POST /api/Auth/signup HTTP/1.1" 201
+2026-10-30 14:55:00 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:55:00 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:55:00 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:55:00 - INFO - uvicorn.error - Finished server process [33520]
+2026-10-30 14:55:08 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:55:08 - INFO - uvicorn.error - Started server process [22052]
+2026-10-30 14:55:08 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:55:08 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:57:52 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:57:52 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:57:52 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:57:52 - INFO - uvicorn.error - Finished server process [22052]
+2026-10-30 14:57:56 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:57:56 - INFO - uvicorn.error - Started server process [29920]
+2026-10-30 14:57:56 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:57:56 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:58:04 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:58:04 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:58:04 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:58:04 - INFO - uvicorn.error - Finished server process [29920]
+2026-10-30 14:58:08 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:58:08 - INFO - uvicorn.error - Started server process [37112]
+2026-10-30 14:58:08 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:58:08 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:58:08 - INFO - uvicorn.error - Shutting down
+2026-10-30 14:58:09 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 14:58:09 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 14:58:09 - INFO - uvicorn.error - Finished server process [37112]
+2026-10-30 14:58:12 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 14:58:12 - INFO - uvicorn.error - Started server process [524]
+2026-10-30 14:58:12 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 14:58:12 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 14:58:15 - INFO - app - Incoming request POST /api/Auth/signup
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - select pg_catalog.version()
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - select current_schema()
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - show standard_conforming_strings
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - INSERT INTO users (username, email, role, hashed_password, created_at, active) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::TIMESTAMP WITHOUT TIME ZONE, $6::BOOLEAN) RETURNING users.id
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - [generated in 0.00088s] ('Tharnish', 'tharnishpalanisamy007@gmail.com', 'user', '$argon2id$v=19$m=65536,t=3,p=4$Au1v8imkgjBggPlgvtbB0w$NeEkoRmcs1EOHgkP6aRi+tI2V8wsK79/eN5jmzC6xL4', datetime.datetime(2026, 10, 30, 14, 58, 11, 166437), True)
+2026-10-30 14:58:15 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-10-30 14:58:19 - INFO - app - Process timing 4.0683 seconds | Status code: 201
+2026-10-30 14:58:19 - INFO - uvicorn.access - 127.0.0.1:51547 - "POST /api/Auth/signup HTTP/1.1" 201
+2026-10-30 17:25:45 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:25:45 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:25:45 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:25:45 - INFO - uvicorn.error - Finished server process [524]
+2026-10-30 17:26:05 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:26:05 - INFO - uvicorn.error - Started server process [36072]
+2026-10-30 17:26:05 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:26:05 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:52:07 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:52:07 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:52:07 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:52:07 - INFO - uvicorn.error - Finished server process [36072]
+2026-10-30 17:52:17 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:52:17 - INFO - uvicorn.error - Started server process [38424]
+2026-10-30 17:52:17 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:52:17 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:52:17 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:52:17 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:52:17 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:52:17 - INFO - uvicorn.error - Finished server process [38424]
+2026-10-30 17:52:28 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:52:28 - INFO - uvicorn.error - Started server process [3148]
+2026-10-30 17:52:28 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:52:28 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:52:28 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:52:28 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:52:28 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:52:28 - INFO - uvicorn.error - Finished server process [3148]
+2026-10-30 17:52:38 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:52:38 - INFO - uvicorn.error - Started server process [19668]
+2026-10-30 17:52:38 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:52:38 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:52:38 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:52:39 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:52:39 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:52:39 - INFO - uvicorn.error - Finished server process [19668]
+2026-10-30 17:52:46 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:52:46 - INFO - uvicorn.error - Started server process [14072]
+2026-10-30 17:52:46 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:52:46 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:53:11 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:53:11 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:53:11 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:53:11 - INFO - uvicorn.error - Finished server process [14072]
+2026-10-30 17:53:20 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:53:20 - INFO - uvicorn.error - Started server process [36848]
+2026-10-30 17:53:20 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:53:20 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:53:31 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:53:31 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:53:31 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:53:31 - INFO - uvicorn.error - Finished server process [36848]
+2026-10-30 17:53:42 - INFO - root - Logging configured successfully. Output directed to D:\Tharnish P\Level 2\product management v3\Product-management-fastapi\applogs.log
+2026-10-30 17:53:42 - INFO - uvicorn.error - Started server process [25040]
+2026-10-30 17:53:42 - INFO - uvicorn.error - Waiting for application startup.
+2026-10-30 17:53:42 - INFO - uvicorn.error - Application startup complete.
+2026-10-30 17:53:42 - INFO - uvicorn.error - Shutting down
+2026-10-30 17:53:42 - INFO - uvicorn.error - Waiting for application shutdown.
+2026-10-30 17:53:42 - INFO - uvicorn.error - Application shutdown complete.
+2026-10-30 17:53:42 - INFO - uvicorn.error - Finished server process [25040]

@@ -1,5 +1,5 @@
-from .product_dependency import get_product_service 
-from .product_image_dependency import get_product_image_service
+from .auth_dependency import admin_required, get_auth_service, get_current_user
 from .category_dependency import get_category_service
-from .auth_dependency import get_auth_service , get_current_user , admin_required
+from .product_dependency import get_product_service
+from .product_image_dependency import get_product_image_service
 from .user_dependency import get_user_service
